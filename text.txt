@@ -1,3 +1,0 @@
-mongodb
-username:sadikislam46
-password:Lecibh6NDGqdPJ97
