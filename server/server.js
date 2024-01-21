@@ -15,30 +15,17 @@ db.once('open', () => {
     console.log("Connected to MongoDB");
 });
 
-// Define mongoose model
-const Task = mongoose.model('Task', {
-    title: String,
-    description: String,
-});
+// initialise sample tasks when server starts
+require('./tasks/task.sampleData');
+
+const Task = require('./tasks/task.model');
+
 
 // Express route to get all tasks
 app.get('/tasks', async (req, res) => {
     try {
         const tasks = await Task.find();
         res.json(tasks);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-// Express route to add new task
-app.post('/tasks', async (req, res) => {
-    const { title, description } = req.body;
-
-    try {
-        const newTask = new Task({ title, description });
-        await newTask.save();
-        res.json(newTask);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
