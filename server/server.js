@@ -30,7 +30,6 @@ app.get('/tasks', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 // start server
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);

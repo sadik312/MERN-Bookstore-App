@@ -7,10 +7,10 @@ const sampleTasks = [
 ];
 
 // inser sample tasks into db
-Task.insertMany(sampleTasks, (err, tasks) => {
-    if (err) {
-        console.error('Erro inserting sample tasks:', err);
-    } else {
-        console.log('Sample tasks inserted successfully:', tasks);
-    }
-});
+Task.insertMany(sampleTasks)
+    .then(tasks => {
+        console.log("Sample tasks inserted successfully: ", tasks);
+    })
+    .catch(err => {
+        console.error("Error inserting sample tasks: ", err);
+    });
