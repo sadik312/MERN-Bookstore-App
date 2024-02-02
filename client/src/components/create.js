@@ -59,6 +59,20 @@ function Create() {
                         onChange={(e) => updateForm({ position: e.target.value })}
                     />
                 </div>
+                <div className="form-group">
+                    <div className="form-check form-check-inline">
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            name="positionOptions"
+                            id="positionIntern"
+                            value="Intern"
+                            checked={form.level === "Intern"}
+                            onChange={(e) => updateForm({ level: e.target.value })}
+                        />
+                        <label htmlFor="positionIntern" className="form-check-label">Intern</label>
+                    </div>
+                </div>
             </form>
         </div>
     )
