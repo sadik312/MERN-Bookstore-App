@@ -1,6 +1,7 @@
 import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose, { mongo } from "mongoose";
+import { Book } from "./models/bookModel.js";
 const app = express();
 
 app.get('/',  (request, response) => {
@@ -21,6 +22,18 @@ app.post('/books', async (request, response) => {
                 message: 'Send all required fields: title, author, publishYear',
             });
         }
+        // Var for newBook using request.body for required fields
+        const newBook = {
+            title: request.body.title,
+            author: request.body.author,
+            publishYear: request.body.publishYear,
+        };
+
+        // save result to newBook var
+        const book = await Book.create(newBook);
+
+        // return status 201 and return book to client
+        return response.status(201).send(book);
     } catch (error) {
         console.log(error.message);
         response.status(500).send({ message: error.message });
