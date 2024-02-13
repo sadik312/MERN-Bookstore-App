@@ -1,8 +1,16 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 import { Book } from "./models/bookModel.js";
+
+require('dotenv').config();
+console.log(process.env);
+
+const DbUrl = process.env.mongoDBURL;
+const Port = process.env.PORT;
 const app = express();
+
+console.log(DbUrl);
+console.log(Port);
 
 app.get('/',  (request, response) => {
     console.log(request)
@@ -42,12 +50,12 @@ app.post('/books', async (request, response) => {
 
 // Connect to DB
 mongoose
-    .connect(mongoDBURL)
+    .connect(DbUrl)
     .then(() => {
         console.log("App connected to database");
         // Server to only run if db connection is successful
-        app.listen(PORT, () => {
-            console.log(`App is listening on port: ${PORT}`);
+        app.listen(Port, () => {
+            console.log(`App is listening on port: ${Port}`);
         });
     })
     .catch((error) => {
