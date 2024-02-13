@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 // Create book schema variable
 const bookSchema = mongoose.Schema(
@@ -23,4 +23,4 @@ const bookSchema = mongoose.Schema(
 );
 
 // Create a book model
-export const Book = mongoose.model('Cat', { name: String });
+const Book = mongoose.model('Cat', { name: String });

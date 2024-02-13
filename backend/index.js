@@ -1,16 +1,12 @@
-import express from "express";
-import mongoose from "mongoose";
-import { Book } from "./models/bookModel.js";
+const express = require('express');
+const mongoose = require('mongoose');
+const { Book } = require('./models/bookModel.js');
 
 require('dotenv').config();
-console.log(process.env);
 
 const DbUrl = process.env.mongoDBURL;
 const Port = process.env.PORT;
 const app = express();
-
-console.log(DbUrl);
-console.log(Port);
 
 app.get('/',  (request, response) => {
     console.log(request)
