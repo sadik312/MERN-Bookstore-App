@@ -8,6 +8,9 @@ const DbUrl = process.env.mongoDBURL;
 const Port = process.env.PORT;
 const app = express();
 
+// Middleware to parse request.body
+app.use(express.json());
+
 app.get('/',  (request, response) => {
     console.log(request)
     return response.status(234).send("Welcome to the MERN Stack app")
