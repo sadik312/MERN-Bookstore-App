@@ -23,4 +23,9 @@ const bookSchema = mongoose.Schema(
 );
 
 // Create a book model
-const Book = mongoose.model('Cat', { name: String });
+// const Book = mongoose.model('Cat', { name: String });
+const Book = mongoose.model('Book', bookSchema);
+
+module.exports = {
+    Book: Book
+};
