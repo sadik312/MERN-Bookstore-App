@@ -52,7 +52,7 @@ app.get('/books', async (request, response) => {
     try {
         const books = await Book.find({});
         return response.status(200).json({
-            // create object for better formatting in db
+            // create object for better structure for data in db
             count: books.length,
             data: books
         })
