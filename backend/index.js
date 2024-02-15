@@ -78,6 +78,25 @@ app.get('/books/:id', async (request, response) => {
     }
 });
 
+// Route to update a book
+app.put('/books/:id', async (request, response) => {
+    try {
+        // validation
+        if (
+            !request.body.title ||
+            !request.body.author ||
+            !request.body.publishYear
+        ) {
+            return response.status(400).send({
+                message: 'Fill in all required fields: title, author, publishYear',
+            });
+        }
+   } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+   }
+});
+
 
 // Connect to DB
 mongoose
