@@ -91,6 +91,16 @@ app.put('/books/:id', async (request, response) => {
                 message: 'Fill in all required fields: title, author, publishYear',
             });
         }
+        
+        const { id } = request.params;
+
+        const result = await Book.findByIdAndUpdate(id, request.body);
+
+        // check result
+        if (!result) {
+            return response.status(404).json({ message: 'Book not found' });
+        }
+        return response.status(200).send({ message: 'Book updated successfully' });
    } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
