@@ -17,7 +17,7 @@ app.get('/',  (request, response) => {
     return response.status(234).send("Welcome to the MERN Stack app")
 });
 
-// Handle /books route with this middleware
+// Mount booksRoute router to specific base path /books
 app.use('/books', booksRoute);
 
 // Connect to DB
