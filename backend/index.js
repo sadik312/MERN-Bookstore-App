@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { Book } = require('./models/bookModel.js');
+const { booksRoute } = require('./routes/booksRoute.js');
 
 require('dotenv').config();
 
@@ -15,6 +16,9 @@ app.get('/',  (request, response) => {
     console.log(request)
     return response.status(234).send("Welcome to the MERN Stack app")
 });
+
+// Handle /books route with this middleware
+app.use('/books', booksRoute);
 
 // Connect to DB
 mongoose

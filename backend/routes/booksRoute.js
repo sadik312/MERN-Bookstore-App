@@ -8,7 +8,7 @@ const { Book } = require('./models/bookModel.js');
 const router = express.Router();
 
 // Route to save a new book
-router.post('/books', async (request, response) => {
+router.post('/', async (request, response) => {
     try {
         // Validation for input
         if (
@@ -39,7 +39,7 @@ router.post('/books', async (request, response) => {
 });
 
 // Route to get all books from database
-router.get('/books', async (request, response) => {
+router.get('/', async (request, response) => {
     try {
         const books = await Book.find({});
         return response.status(200).json({
@@ -54,7 +54,7 @@ router.get('/books', async (request, response) => {
 });
 
 // Route to get one book from database by id
-router.get('/books/:id', async (request, response) => {
+router.get('/:id', async (request, response) => {
     try {
         // destructure
         const { id } = request.params;
@@ -70,7 +70,7 @@ router.get('/books/:id', async (request, response) => {
 });
 
 // Route to update a book
-router.put('/books/:id', async (request, response) => {
+router.put('/:id', async (request, response) => {
     try {
         // validation
         if (
@@ -99,7 +99,7 @@ router.put('/books/:id', async (request, response) => {
 });
 
 // delete a book from db
-router.delete('/books/:id', async (request, response) => {
+router.delete('/:id', async (request, response) => {
     try {
         const { id } = request.params;
 
