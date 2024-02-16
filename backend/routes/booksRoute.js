@@ -1,16 +1,18 @@
 // Using express router to refactor Nodejs
 // making routes in separate folder for scalability - i.e having more than one model that needs its own routes
 
+const express = require('express');
 
+const router = express.Router();
 
 // Route to save a new book
-app.post('/books', async (request, response) => {
-    try{
+router.post('/books', async (request, response) => {
+    try {
         // Validation for input
-        if(
-        !request.body.title ||
-        !request.body.author ||
-        !request.body.publishYear
+        if (
+            !request.body.title ||
+            !request.body.author ||
+            !request.body.publishYear
         ) {
             return response.status(400).send({
                 message: 'Send all required fields: title, author, publishYear',
@@ -35,7 +37,7 @@ app.post('/books', async (request, response) => {
 });
 
 // Route to get all books from database
-app.get('/books', async (request, response) => {
+router.get('/books', async (request, response) => {
     try {
         const books = await Book.find({});
         return response.status(200).json({
@@ -50,8 +52,8 @@ app.get('/books', async (request, response) => {
 });
 
 // Route to get one book from database by id
-app.get('/books/:id', async (request, response) => {
-    try{
+router.get('/books/:id', async (request, response) => {
+    try {
         // destructure
         const { id } = request.params;
 
@@ -66,7 +68,7 @@ app.get('/books/:id', async (request, response) => {
 });
 
 // Route to update a book
-app.put('/books/:id', async (request, response) => {
+router.put('/books/:id', async (request, response) => {
     try {
         // validation
         if (
@@ -78,7 +80,7 @@ app.put('/books/:id', async (request, response) => {
                 message: 'Fill in all required fields: title, author, publishYear',
             });
         }
-        
+
         const { id } = request.params;
 
         const result = await Book.findByIdAndUpdate(id, request.body);
@@ -88,17 +90,17 @@ app.put('/books/:id', async (request, response) => {
             return response.status(404).json({ message: 'Book not found' });
         }
         return response.status(200).send({ message: 'Book updated successfully' });
-   } catch (error) {
-    console.log(error.message);
-    response.status(500).send({ message: error.message });
-   }
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
+    }
 });
 
 // delete a book from db
-app.delete('/books/:id', async (request, response) => {
+router.delete('/books/:id', async (request, response) => {
     try {
         const { id } = request.params;
-        
+
         const result = await Book.findByIdAndDelete(id);
 
         if (!result) {
