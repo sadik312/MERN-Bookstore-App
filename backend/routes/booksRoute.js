@@ -2,8 +2,7 @@
 // making routes in separate folder for scalability - i.e having more than one model that needs its own routes
 
 const express = require('express');
-const { Book } = require('./models/bookModel.js');
-
+const { Book } = require('../models/bookModel');
 
 const router = express.Router();
 
