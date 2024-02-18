@@ -7,10 +7,15 @@ require('dotenv').config();
 
 const DbUrl = process.env.mongoDBURL;
 const Port = process.env.PORT;
+
 const app = express();
 
 // Middleware to parse request.body
 app.use(express.json());
+
+// Middleware for handling CORS Policy
+// Option 1: Allow all origins with default of cors(*)
+// app.use(cors());
 
 app.get('/',  (request, response) => {
     console.log(request)
