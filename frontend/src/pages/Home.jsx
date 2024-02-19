@@ -27,7 +27,7 @@ const Home = () => {
             </Link>
         </div>
         {loading ? (
-
+            <spinner /> // render spinner component while loading
         ) : (
             <table className='w-full border-separate border-spacing-2'>
                 <thead>
@@ -39,7 +39,7 @@ const Home = () => {
                     <th className='border border-slate-600 rounded-md max-md:hidden'>
                         Publish Year
                     </th>
-                </thead >
+                </thead>
     <tbody>
         {books.map((book, index) => (
             <tr key={book._id} className='h-8'>
