@@ -6,4 +6,6 @@ const spinner = () => {
   )
 }
 
-export default spinner
+module.exports {
+    spinner
+}
