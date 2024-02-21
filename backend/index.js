@@ -1,8 +1,16 @@
+/*
 const express = require('express');
 const mongoose = require('mongoose');
 const { Book } = require('./models/bookModel.js');
 const booksRoute = require('./routes/booksRoute.js').router;
 const cors = require('cors');
+*/
+
+import express from 'express';
+import mongoose from "mongoose";
+import { Book } from './models/bookModel.js';
+import booksRoute from "./routes/booksRoute.js"
+import cors from "cors";
 
 require('dotenv').config();
 
