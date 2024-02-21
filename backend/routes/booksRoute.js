@@ -2,7 +2,7 @@
 // making routes in separate folder for scalability - i.e having more than one model that needs its own routes
 
 import express from 'express';
-import { Book } from '../models/bookModel';
+import { Book } from '../models/bookModel.js';
 
 const router = express.Router();
 
