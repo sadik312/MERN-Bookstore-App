@@ -1,9 +1,9 @@
 import React from 'react'
 
-const booksCard = () => {
+const BooksCard = () => {
   return (
     <div>booksCard</div>
   )
 }
 
-export default booksCard
+export default BooksCard
