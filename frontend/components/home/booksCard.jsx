@@ -22,6 +22,10 @@ const BooksCard = ({ books }) => { // receive books as props
                     <PiBookOpenTextLight className='text-red-300 text-2xl' />
                     <h2 className='my-1'>{item.title}</h2>
                 </div>
+                <div className='flex justify-start items-center gap-x-2'>
+                    <BiUserCircle className='text-red-300 text-2xl' />
+                    <h2 className='my-1'>{item.author}</h2>
+                </div>
             </div>
         ))}
     </div>
