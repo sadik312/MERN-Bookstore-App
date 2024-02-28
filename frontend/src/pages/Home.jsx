@@ -6,7 +6,7 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../../components/home/booksTable';
-import BooksCard from '../../components/home/booksCard';
+import BooksCard from '../../components/home/BooksCard';
 
 const Home = () => {
     const [books, setBooks] = useState([]);
