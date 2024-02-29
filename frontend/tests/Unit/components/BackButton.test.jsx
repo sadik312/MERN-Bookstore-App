@@ -2,7 +2,6 @@
 
 import React from "react";
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/react';
 import BackButton from "../../../components/BackButton";
 import { BrowserRouter as Router } from "react-router-dom";
 
