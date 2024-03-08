@@ -1,0 +1,7 @@
+when npm cache or package-lock.json is corrupted
+
+1. rm -rf node_modules
+2. rm package-lock.json
+3. npm cache clean -f
+4. npm cache verify -f
+5. npm i
