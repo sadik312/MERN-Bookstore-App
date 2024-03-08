@@ -1,10 +1,10 @@
-const request = require('supertest');
-const express = require('express');
-const mongoose = require('mongoose');
-const { Book } = require('../models/bookModel.js');
+import { request } from 'supertest';
+import express from 'express';
+import mongoose from 'mongoose';
+import { Book } from '../../models/bookModel.js';
 
 // Import your router
-const router = require('../routes/bookRoutes.js');
+import router from '../../routes/booksRoute.js';
 
 const app = express();
 app.use(express.json());
@@ -12,10 +12,9 @@ app.use('/', router);
 
 // Connect to a test database before running tests
 beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/testdb', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+    console.log('Connecting to MongoDB');
+    await mongoose.connect('mongodb://localhost:27017/testdb');
+    console.log('Connected to MongoDB');
 });
 
 // Close the database connection after tests
