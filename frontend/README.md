@@ -9,3 +9,13 @@ Currently, two official plugins are available:
 
 ### Axios
 - Used for sending HTTP requests
+
+### Frontend Testing
+#### React Testing Library 
+- Lightweight solution for testing React components
+- Provides light functions on top of react-dom and react-dom/test-utils
+- Primary guiding principles:
+    - 'The more your tests resembles the way your software is used, the more confidence they can give you.'
+- The React Testing Library is not:
+    - A test runner or framework
+    - specific to a testing framework
