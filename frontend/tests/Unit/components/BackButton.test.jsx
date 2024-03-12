@@ -2,8 +2,9 @@
 
 import React from "react";
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom';
 import BackButton from "../../../components/BackButton";
+import { BrowserRouter } from "react-router-dom";
 
 /*
 describe('BackButton', () => {
@@ -15,7 +16,11 @@ describe('BackButton', () => {
 */
 
 test('renders BackButton with default destination', () => {
-    const { getByTestId } = render(<BackButton />);
+    const { getByTestId } = render(
+    <BrowserRouter>
+        <BackButton />
+    </BrowserRouter>
+    );
   
     // Verify that the BackButton renders with the default destination '/'
     const backButtonLink = getByTestId('back-button-link');
