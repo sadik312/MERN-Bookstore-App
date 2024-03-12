@@ -1,19 +1,23 @@
 // components/BackButton.jsx
 
 import React from "react";
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'
 import BackButton from "../../../components/BackButton";
-import { BrowserRouter as Router } from "react-router-dom";
 
+/*
 describe('BackButton', () => {
     test('renders BackButton with default destination', () => {
-        render(
-            <Router>
-                <BackButton />
-            </Router>
-        );
-        const backButton = screen.getByRole('link');
-        expect(backButton).toBeInTheDocument();
+        
     });
 
 })
+*/
+
+test('renders BackButton with default destination', () => {
+    const { getByTestId } = render(<BackButton />);
+  
+    // Verify that the BackButton renders with the default destination '/'
+    const backButtonLink = getByTestId('back-button-link');
+    expect(backButtonLink).toHaveAttribute('href', '/');
+});
