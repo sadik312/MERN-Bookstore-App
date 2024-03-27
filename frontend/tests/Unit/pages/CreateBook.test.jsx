@@ -1,7 +1,8 @@
 import React from "react";
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor, findByText } from '@testing-library/react';
 import CreateBook from "../../../src/pages/CreateBook";
 import { BrowserRouter } from "react-router-dom";
+import axios from 'axios';
 
 describe('CreateBook', () => {
     test('renders without crashing', () => {
@@ -28,6 +29,10 @@ describe('CreateBook', () => {
         fireEvent.change(publishYearInput, {target: { value: '2022' } });
 
         // submit form
-        fireEvent.click(getByLabelText('Save'));
-    })
+        fireEvent.click(getByText('Save'));
+
+        // wait for loading spinner to disappear
+
+        // assert that axios.post was called with correct data
+    });
 });
